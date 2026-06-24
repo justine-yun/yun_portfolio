@@ -1,4 +1,7 @@
+"use client";
+
 import { ThemeToggle } from "./theme-toggle";
+import { LanguagePicker, useDict } from "./language";
 
 const EMAIL = "riskyjunk@gmail.com";
 const PHONE_NUMBER = "010-xxxx-xxxx";
@@ -11,62 +14,12 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-const achievements = [
-  "Retool 어드민을 Phoenix LiveView로 마이그레이션 — 구독료 월 $60 절감",
-  "출하 등급 데이터 수집 파이프라인 구축 — 일 70,000여 건 수집",
-  "정적 코드 분석으로 중복 코드 검출, Template으로 묶어 개발 생산성 개선",
-  "카카오톡 연계 알림으로 사용자 접근성 향상",
-];
-
-const projects = [
-  {
-    title: "팜스플랜 양돈 매니저",
-    blurb:
-      "양돈 농장 관리 서비스. 번식돈·비육돈 관리 기능을 리팩토링하고, 양식 엑셀 파일을 서비스 데이터로 업로드하는 기능을 구현했다.",
-    year: "2023",
-    tags: ["Elixir", "Phoenix LiveView", "PostgreSQL"],
-  },
-  {
-    title: "팜스플랜 양계 매니저",
-    blurb:
-      "양계 농장 관리 서비스. DB 스키마 모델링과 백엔드 context를 작성하고 주기별 입고·출하 관리 페이지를 개발했다.",
-    year: "2023",
-    tags: ["Elixir", "Phoenix LiveView", "PostgreSQL"],
-  },
-  {
-    title: "사내 어드민 페이지",
-    blurb: "농장 및 유저 관리 페이지. 기존 Retool로 구현된 어드민을 Phoenix LiveView로 마이그레이션했다.",
-    year: "2024",
-    tags: ["Elixir", "Phoenix LiveView", "Migration"],
-  },
-  {
-    title: "비육돈 출하정산 서비스",
-    blurb:
-      "출하 등급 데이터를 수집해 예상 판매가를 계산하고 알림을 제공. 공공데이터포털 API Client와 크롤러를 개발하고, NHN·Kakao Business API로 시세·계근표 알림을 전송했다.",
-    year: "2024",
-    tags: ["Elixir", "Crawler", "API Client", "NHN", "Kakao"],
-  },
-];
-
 const techStack = [
   { group: "Language", items: ["Elixir", "JavaScript", "TypeScript"] },
   { group: "Backend", items: ["Phoenix LiveView", "Express.js", "NestJS"] },
   {
     group: "Database & Infra",
     items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Naver Cloud Platform"],
-  },
-];
-
-const education = [
-  {
-    title: "한양대학교 ERICA",
-    detail: "공학대학 전자공학부 학사",
-    period: "2013.03 — 2020.08",
-  },
-  {
-    title: "부스트캠프 웹·모바일 7기",
-    detail: "네이버 커넥트재단 · 챌린지 / 멤버십 수료",
-    period: "2022.07 — 2022.12",
   },
 ];
 
@@ -77,7 +30,7 @@ function Nav() {
         <a href="#top" className="font-display text-lg font-medium tracking-tight">
           Yun<span className="text-accent">.</span>
         </a>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 sm:gap-6">
           <ul className="hidden items-center gap-6 sm:flex">
             {navLinks.map(link => (
               <li key={link.href}>
@@ -87,6 +40,7 @@ function Nav() {
               </li>
             ))}
           </ul>
+          <LanguagePicker />
           <ThemeToggle />
         </div>
       </nav>
@@ -95,29 +49,35 @@ function Nav() {
 }
 
 function Hero() {
+  const { hero } = useDict();
   return (
     <section id="top" className="mx-auto max-w-5xl px-6 pb-24 pt-24 sm:pt-36">
-      <p className="eyebrow rise">Backend Engineer · 윤성호</p>
+      <p className="eyebrow rise">{hero.eyebrow}</p>
       <h1 className="rise mt-6 max-w-3xl font-display text-5xl font-medium leading-[1.08] tracking-tight sm:text-6xl">
-        백엔드 개발자 <span className="text-accent">윤성호</span>입니다.
+        {hero.titlePre}
+        <span className="text-accent">{hero.titleName}</span>
+        {hero.titlePost}
       </h1>
       <p className="rise mt-8 max-w-2xl text-lg leading-8 text-muted">
-        DB 스키마 모델링부터 외부 API 연동, 주기적 데이터 수집까지 —
-        <br />
-        사용자에게 보이지 않는 곳에서 서비스가 안정적으로 돌아가게 만드는 일을 좋아합니다.
+        {hero.description.map((line, i) => (
+          <span key={line}>
+            {line}
+            {i < hero.description.length - 1 && <br />}
+          </span>
+        ))}
       </p>
       <div className="rise mt-10 flex items-center gap-6">
         <a
           href="#contact"
           className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-85"
         >
-          연락하기
+          {hero.contactCta}
         </a>
         <a
           href="#project"
           className="text-sm font-medium underline decoration-hairline decoration-2 underline-offset-4 transition-colors hover:decoration-accent"
         >
-          프로젝트 보기
+          {hero.projectCta}
         </a>
       </div>
     </section>
@@ -125,6 +85,7 @@ function Hero() {
 }
 
 function Experience() {
+  const { experience } = useDict();
   return (
     <section id="experience" className="border-t border-hairline">
       <div className="mx-auto grid max-w-5xl gap-10 px-6 py-20 sm:grid-cols-[200px_1fr]">
@@ -134,12 +95,12 @@ function Experience() {
         </div>
         <div className="max-w-2xl">
           <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-            <h3 className="font-display text-xl font-medium tracking-tight">한국축산데이터</h3>
-            <span className="eyebrow">2023.04 — 2024.10 · 1년 7개월</span>
+            <h3 className="font-display text-xl font-medium tracking-tight">{experience.company}</h3>
+            <span className="eyebrow">{experience.period}</span>
           </div>
-          <p className="mt-2 text-muted">웹 백엔드 개발자 · 개발팀</p>
+          <p className="mt-2 text-muted">{experience.role}</p>
           <ul className="mt-8 space-y-4">
-            {achievements.map(item => (
+            {experience.achievements.map(item => (
               <li key={item} className="flex gap-3 leading-7">
                 <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                 <span>{item}</span>
@@ -153,13 +114,14 @@ function Experience() {
 }
 
 function Project() {
+  const { projects, experience } = useDict();
   return (
     <section id="project" className="border-t border-hairline">
       <div className="mx-auto max-w-5xl px-6 py-20">
         <p className="eyebrow">Project</p>
         <div className="mt-10 grid gap-x-10 gap-y-6 sm:grid-cols-[200px_1fr]">
           <div>
-            <h3 className="font-display text-xl font-medium tracking-tight">한국축산데이터</h3>
+            <h3 className="font-display text-xl font-medium tracking-tight">{experience.company}</h3>
             <p className="eyebrow mt-3">2023 — 2024</p>
           </div>
           <ul>
@@ -217,6 +179,7 @@ function Stack() {
 }
 
 function Education() {
+  const { education } = useDict();
   return (
     <section id="education" className="border-t border-hairline">
       <div className="mx-auto grid max-w-5xl gap-10 px-6 py-20 sm:grid-cols-[200px_1fr]">
@@ -241,12 +204,13 @@ function Education() {
 }
 
 function Contact() {
+  const { contact, footer } = useDict();
   return (
     <footer id="contact" className="border-t border-hairline">
       <div className="mx-auto max-w-5xl px-6 py-24">
         <p className="eyebrow">Contact</p>
         <h2 className="mt-6 max-w-2xl font-display text-2xl font-medium leading-tight tracking-tight sm:text-3xl">
-          함께하실 분들의 연락을 기다립니다.
+          {contact.heading}
         </h2>
         <div className="mt-10">
           ✉️
@@ -263,7 +227,7 @@ function Contact() {
             {PHONE_NUMBER}
           </span>
         </div>
-        <p className="eyebrow mt-20">© 2026 윤성호 · Backend Engineer</p>
+        <p className="eyebrow mt-20">{footer}</p>
       </div>
     </footer>
   );
