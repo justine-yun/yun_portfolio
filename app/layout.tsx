@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { DevtoolsGuard } from "./devtools-guard";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-display",
@@ -41,7 +42,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <DevtoolsGuard />
+        {children}
+      </body>
     </html>
   );
 }
