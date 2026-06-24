@@ -1,3 +1,5 @@
+import { ThemeToggle } from "./theme-toggle";
+
 const EMAIL = "riskyjunk@gmail.com";
 
 const navLinks = [
@@ -62,18 +64,21 @@ function Nav() {
         <a href="#top" className="font-display text-lg font-medium tracking-tight">
           Yun<span className="text-accent">.</span>
         </a>
-        <ul className="hidden items-center gap-6 sm:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="eyebrow transition-colors hover:text-ink"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-6">
+          <ul className="hidden items-center gap-6 sm:flex">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="eyebrow transition-colors hover:text-ink"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ThemeToggle />
+        </div>
       </nav>
     </header>
   );
