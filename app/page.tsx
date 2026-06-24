@@ -34,8 +34,7 @@ const projects = [
   },
   {
     title: "사내 어드민 페이지",
-    blurb:
-      "농장 및 유저 관리 페이지. 기존 Retool로 구현된 어드민을 Phoenix LiveView로 마이그레이션했다.",
+    blurb: "농장 및 유저 관리 페이지. 기존 Retool로 구현된 어드민을 Phoenix LiveView로 마이그레이션했다.",
     year: "2024",
     tags: ["Elixir", "Phoenix LiveView", "Migration"],
   },
@@ -66,12 +65,9 @@ function Nav() {
         </a>
         <div className="flex items-center gap-6">
           <ul className="hidden items-center gap-6 sm:flex">
-            {navLinks.map((link) => (
+            {navLinks.map(link => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="eyebrow transition-colors hover:text-ink"
-                >
+                <a href={link.href} className="eyebrow transition-colors hover:text-ink">
                   {link.label}
                 </a>
               </li>
@@ -88,14 +84,13 @@ function Hero() {
   return (
     <section id="top" className="mx-auto max-w-5xl px-6 pb-24 pt-24 sm:pt-36">
       <p className="eyebrow rise">Backend Engineer · 윤성호</p>
-      <h1 className="rise mt-6 max-w-3xl font-display text-5xl font-medium leading-[1.08] tracking-tight sm:text-7xl">
-        데이터로 움직이는{" "}
-        <span className="text-accent">백엔드</span>를 설계하고 만든다.
+      <h1 className="rise mt-6 max-w-3xl font-display text-5xl font-medium leading-[1.08] tracking-tight sm:text-6xl">
+        백엔드 개발자 <span className="text-accent">윤성호</span>입니다.
       </h1>
-      <p className="rise mt-8 max-w-xl text-lg leading-8 text-muted">
-        한국축산데이터에서 Elixir·Phoenix LiveView로 축산 업무 관리 시스템을
-        설계·개발한 웹 백엔드 엔지니어. 스키마 모델링부터 데이터 수집 파이프라인,
-        외부 API 연동까지 서비스의 뒷단을 책임졌다.
+      <p className="rise mt-8 max-w-2xl text-lg leading-8 text-muted">
+        DB 스키마 모델링부터 외부 API 연동, 주기적 데이터 수집까지 —
+        <br />
+        사용자에게 보이지 않는 곳에서 서비스가 안정적으로 돌아가게 만드는 일을 좋아합니다.
       </p>
       <div className="rise mt-10 flex items-center gap-6">
         <a
@@ -122,15 +117,13 @@ function About() {
         <p className="eyebrow">About</p>
         <div className="max-w-2xl space-y-6 text-lg leading-8">
           <p>
-            서비스의 데이터 흐름을 설계하는 일을 좋아하는 백엔드 개발자다. DB
-            스키마 모델링과 백엔드 context 작성부터 외부 API 연동, 주기적
-            데이터 수집까지 — 사용자에게 보이지 않는 곳에서 서비스가 안정적으로
-            돌아가게 만드는 데 집중한다.
+            서비스의 데이터 흐름을 설계하는 일을 좋아하는 백엔드 개발자다. DB 스키마 모델링과 백엔드 context 작성부터
+            외부 API 연동, 주기적 데이터 수집까지 — 사용자에게 보이지 않는 곳에서 서비스가 안정적으로 돌아가게 만드는 데
+            집중한다.
           </p>
           <p className="text-muted">
-            한양대학교 ERICA 전자공학부를 졸업하고, 네이버 커넥트재단
-            부스트캠프 웹·모바일 7기 챌린지·멤버십 과정을 거쳐 개발자로
-            전향했다.
+            한양대학교 ERICA 전자공학부를 졸업하고, 네이버 커넥트재단 부스트캠프 웹·모바일 7기 챌린지·멤버십 과정을 거쳐
+            개발자로 전향했다.
           </p>
         </div>
       </div>
@@ -148,19 +141,14 @@ function Experience() {
         </div>
         <div className="max-w-2xl">
           <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-            <h3 className="font-display text-xl font-medium tracking-tight">
-              한국축산데이터
-            </h3>
+            <h3 className="font-display text-xl font-medium tracking-tight">한국축산데이터</h3>
             <span className="eyebrow">2023.04 — 2024.10 · 1년 7개월</span>
           </div>
           <p className="mt-2 text-muted">웹 백엔드 개발자 · 개발팀</p>
           <ul className="mt-8 space-y-4">
-            {achievements.map((item) => (
+            {achievements.map(item => (
               <li key={item} className="flex gap-3 leading-7">
-                <span
-                  aria-hidden
-                  className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
-                />
+                <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                 <span>{item}</span>
               </li>
             ))}
@@ -176,13 +164,11 @@ function Work() {
     <section id="work" className="border-t border-hairline">
       <div className="mx-auto max-w-5xl px-6 py-20">
         <div className="flex items-baseline justify-between">
-          <h2 className="font-display text-2xl font-medium tracking-tight">
-            Selected work
-          </h2>
+          <h2 className="font-display text-2xl font-medium tracking-tight">Selected work</h2>
           <span className="eyebrow">한국축산데이터</span>
         </div>
         <ul className="mt-10">
-          {projects.map((project) => (
+          {projects.map(project => (
             <li key={project.title} className="group border-t border-hairline">
               <div className="grid grid-cols-1 gap-3 py-7 sm:grid-cols-[1fr_auto] sm:items-start">
                 <div>
@@ -192,16 +178,11 @@ function Work() {
                     </h3>
                     <span className="eyebrow">{project.year}</span>
                   </div>
-                  <p className="mt-2 max-w-xl leading-7 text-muted">
-                    {project.blurb}
-                  </p>
+                  <p className="mt-2 max-w-xl leading-7 text-muted">{project.blurb}</p>
                 </div>
                 <div className="flex flex-wrap gap-2 sm:max-w-[220px] sm:justify-end">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-hairline px-3 py-1 text-xs text-muted"
-                    >
+                  {project.tags.map(tag => (
+                    <span key={tag} className="rounded-full border border-hairline px-3 py-1 text-xs text-muted">
                       {tag}
                     </span>
                   ))}
@@ -221,15 +202,12 @@ function Stack() {
       <div className="mx-auto grid max-w-5xl gap-10 px-6 py-20 sm:grid-cols-[200px_1fr]">
         <p className="eyebrow">Tech stack</p>
         <div className="max-w-2xl space-y-10">
-          {techStack.map((row) => (
+          {techStack.map(row => (
             <div key={row.group}>
               <p className="eyebrow">{row.group}</p>
               <div className="mt-4 flex flex-wrap gap-2">
-                {row.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full bg-accent-soft px-4 py-1.5 text-sm font-medium text-accent"
-                  >
+                {row.items.map(item => (
+                  <span key={item} className="rounded-full bg-accent-soft px-4 py-1.5 text-sm font-medium text-accent">
                     {item}
                   </span>
                 ))}
