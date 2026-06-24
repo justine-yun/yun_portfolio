@@ -4,10 +4,10 @@ const EMAIL = "riskyjunk@gmail.com";
 const PHONE_NUMBER = "010-xxxx-xxxx";
 
 const navLinks = [
-  { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Project", href: "#project" },
   { label: "Stack", href: "#stack" },
+  { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -54,6 +54,19 @@ const techStack = [
   {
     group: "Database & Infra",
     items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Naver Cloud Platform"],
+  },
+];
+
+const education = [
+  {
+    title: "한양대학교 ERICA",
+    detail: "공학대학 전자공학부 학사",
+    period: "2013.03 — 2020.08",
+  },
+  {
+    title: "부스트캠프 웹·모바일 7기",
+    detail: "네이버 커넥트재단 · 챌린지 / 멤버십 수료",
+    period: "2022.07 — 2022.12",
   },
 ];
 
@@ -106,27 +119,6 @@ function Hero() {
         >
           프로젝트 보기
         </a>
-      </div>
-    </section>
-  );
-}
-
-function About() {
-  return (
-    <section id="about" className="border-t border-hairline">
-      <div className="mx-auto grid max-w-5xl gap-10 px-6 py-20 sm:grid-cols-[200px_1fr]">
-        <p className="eyebrow">About</p>
-        <div className="max-w-2xl space-y-6 text-lg leading-8">
-          <p>
-            서비스의 데이터 흐름을 설계하는 일을 좋아하는 백엔드 개발자다. DB 스키마 모델링과 백엔드 context 작성부터
-            외부 API 연동, 주기적 데이터 수집까지 — 사용자에게 보이지 않는 곳에서 서비스가 안정적으로 돌아가게 만드는 데
-            집중한다.
-          </p>
-          <p className="text-muted">
-            한양대학교 ERICA 전자공학부를 졸업하고, 네이버 커넥트재단 부스트캠프 웹·모바일 7기 챌린지·멤버십 과정을 거쳐
-            개발자로 전향했다.
-          </p>
-        </div>
       </div>
     </section>
   );
@@ -224,6 +216,30 @@ function Stack() {
   );
 }
 
+function Education() {
+  return (
+    <section id="education" className="border-t border-hairline">
+      <div className="mx-auto grid max-w-5xl gap-10 px-6 py-20 sm:grid-cols-[200px_1fr]">
+        <p className="eyebrow">Education</p>
+        <ul className="max-w-2xl">
+          {education.map(item => (
+            <li
+              key={item.title}
+              className="border-t border-hairline py-6 first:border-t-0 first:pt-0"
+            >
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h3 className="font-display text-xl font-medium tracking-tight">{item.title}</h3>
+                <span className="eyebrow">{item.period}</span>
+              </div>
+              <p className="mt-2 text-muted">{item.detail}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   return (
     <footer id="contact" className="border-t border-hairline">
@@ -259,10 +275,10 @@ export default function Home() {
       <Nav />
       <main className="flex-1">
         <Hero />
-        <About />
         <Experience />
         <Project />
         <Stack />
+        <Education />
         <Contact />
       </main>
     </div>
