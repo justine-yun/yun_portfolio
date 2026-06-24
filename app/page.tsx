@@ -5,7 +5,7 @@ const EMAIL = "riskyjunk@gmail.com";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
-  { label: "Work", href: "#work" },
+  { label: "Project", href: "#project" },
   { label: "Stack", href: "#stack" },
   { label: "Contact", href: "#contact" },
 ];
@@ -100,7 +100,7 @@ function Hero() {
           연락하기
         </a>
         <a
-          href="#work"
+          href="#project"
           className="text-sm font-medium underline decoration-hairline decoration-2 underline-offset-4 transition-colors hover:decoration-accent"
         >
           프로젝트 보기
@@ -159,17 +159,19 @@ function Experience() {
   );
 }
 
-function Work() {
+function Project() {
   return (
-    <section id="work" className="border-t border-hairline">
+    <section id="project" className="border-t border-hairline">
       <div className="mx-auto max-w-5xl px-6 py-20">
-        <div className="flex items-baseline justify-between">
-          <h2 className="font-display text-2xl font-medium tracking-tight">Selected work</h2>
-          <span className="eyebrow">한국축산데이터</span>
-        </div>
-        <ul className="mt-10">
-          {projects.map(project => (
-            <li key={project.title} className="group border-t border-hairline">
+        <p className="eyebrow">Project</p>
+        <div className="mt-10 grid gap-x-10 gap-y-6 sm:grid-cols-[200px_1fr]">
+          <div>
+            <h3 className="font-display text-xl font-medium tracking-tight">한국축산데이터</h3>
+            <p className="eyebrow mt-3">2023 — 2024</p>
+          </div>
+          <ul>
+            {projects.map(project => (
+              <li key={project.title} className="group border-t border-hairline">
               <div className="grid grid-cols-1 gap-3 py-7 sm:grid-cols-[1fr_auto] sm:items-start">
                 <div>
                   <div className="flex items-baseline gap-4">
@@ -188,9 +190,10 @@ function Work() {
                   ))}
                 </div>
               </div>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );
@@ -250,7 +253,7 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
-        <Work />
+        <Project />
         <Stack />
         <Contact />
       </main>
