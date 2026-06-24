@@ -1,6 +1,7 @@
 import { ThemeToggle } from "./theme-toggle";
 
 const EMAIL = "riskyjunk@gmail.com";
+const PHONE_NUMBER = "010-xxxx-xxxx";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -172,24 +173,24 @@ function Project() {
           <ul>
             {projects.map(project => (
               <li key={project.title} className="group border-t border-hairline">
-              <div className="grid grid-cols-1 gap-3 py-7 sm:grid-cols-[1fr_auto] sm:items-start">
-                <div>
-                  <div className="flex items-baseline gap-4">
-                    <h3 className="font-display text-xl font-medium tracking-tight transition-colors group-hover:text-accent">
-                      {project.title}
-                    </h3>
-                    <span className="eyebrow">{project.year}</span>
+                <div className="grid grid-cols-1 gap-3 py-7 sm:grid-cols-[1fr_auto] sm:items-start">
+                  <div>
+                    <div className="flex items-baseline gap-4">
+                      <h3 className="font-display text-xl font-medium tracking-tight transition-colors group-hover:text-accent">
+                        {project.title}
+                      </h3>
+                      <span className="eyebrow">{project.year}</span>
+                    </div>
+                    <p className="mt-2 max-w-xl leading-7 text-muted">{project.blurb}</p>
                   </div>
-                  <p className="mt-2 max-w-xl leading-7 text-muted">{project.blurb}</p>
+                  <div className="flex flex-wrap gap-2 sm:max-w-[220px] sm:justify-end">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="rounded-full border border-hairline px-3 py-1 text-xs text-muted">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-2 sm:max-w-[220px] sm:justify-end">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="rounded-full border border-hairline px-3 py-1 text-xs text-muted">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
               </li>
             ))}
           </ul>
@@ -228,16 +229,23 @@ function Contact() {
     <footer id="contact" className="border-t border-hairline">
       <div className="mx-auto max-w-5xl px-6 py-24">
         <p className="eyebrow">Contact</p>
-        <h2 className="mt-6 max-w-2xl font-display text-4xl font-medium leading-tight tracking-tight sm:text-5xl">
-          함께 만들 일이 있다면 연락 주세요.
+        <h2 className="mt-6 max-w-2xl font-display text-2xl font-medium leading-tight tracking-tight sm:text-3xl">
+          함께하실 분들의 연락을 기다립니다.
         </h2>
         <div className="mt-10">
+          ✉️
           <a
             href={`mailto:${EMAIL}`}
-            className="text-lg underline decoration-hairline decoration-2 underline-offset-4 transition-colors hover:decoration-accent"
+            className="text-lg ml-2 underline decoration-hairline decoration-2 underline-offset-4 transition-colors hover:decoration-accent"
           >
             {EMAIL}
           </a>
+        </div>
+        <div className="mt-5">
+          📞
+          <span className="text-lg ml-2 underline decoration-hairline decoration-2 underline-offset-4 transition-colors hover:decoration-accent">
+            {PHONE_NUMBER}
+          </span>
         </div>
         <p className="eyebrow mt-20">© 2026 윤성호 · Backend Engineer</p>
       </div>
