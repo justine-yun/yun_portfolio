@@ -17,7 +17,7 @@ import { ThemeToggle } from "./theme-toggle";
 import { LanguagePicker, useDict } from "./language";
 
 const EMAIL = "riskyjunk@gmail.com";
-const PHONE_NUMBER = "010-5114-4212";
+const PHONE_NUMBER = "";
 
 const navLinks = [
   { label: "Experience", href: "#experience" },
