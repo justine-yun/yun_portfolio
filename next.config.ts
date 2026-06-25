@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Emit a fully static site to `out/` for Cloudflare Pages.
+  output: "export",
 };
 
 export default nextConfig;
