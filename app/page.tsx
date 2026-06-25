@@ -4,7 +4,7 @@ import { ThemeToggle } from "./theme-toggle";
 import { LanguagePicker, useDict } from "./language";
 
 const EMAIL = "riskyjunk@gmail.com";
-const PHONE_NUMBER = "010-xxxx-xxxx";
+const PHONE_NUMBER = "010-5114-4212";
 
 const navLinks = [
   { label: "Experience", href: "#experience" },
@@ -186,10 +186,7 @@ function Education() {
         <p className="eyebrow">Education</p>
         <ul className="max-w-2xl">
           {education.map(item => (
-            <li
-              key={item.title}
-              className="border-t border-hairline py-6 first:border-t-0 first:pt-0"
-            >
+            <li key={item.title} className="border-t border-hairline py-6 first:border-t-0 first:pt-0">
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="font-display text-xl font-medium tracking-tight">{item.title}</h3>
                 <span className="eyebrow">{item.period}</span>
