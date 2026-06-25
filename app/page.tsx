@@ -89,6 +89,7 @@ function Hero() {
       <p className="eyebrow rise">{hero.eyebrow}</p>
       <h1 className="rise mt-6 max-w-3xl font-display text-5xl font-medium leading-[1.08] tracking-tight sm:text-6xl">
         {hero.titlePre}
+        <br className="sm:hidden" />
         <span className="text-accent">{hero.titleName}</span>
         {hero.titlePost}
       </h1>
@@ -173,10 +174,7 @@ function Project() {
                     <ul className="mt-3 space-y-1.5">
                       {project.roles.map(role => (
                         <li key={role} className="flex gap-2 leading-6 text-muted">
-                          <span
-                            aria-hidden
-                            className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent"
-                          />
+                          <span aria-hidden className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
                           <span>{role}</span>
                         </li>
                       ))}
