@@ -10,7 +10,8 @@ export const LOCALES: { code: Locale; label: string }[] = [
 
 type Project = {
   title: string;
-  blurb: string;
+  summary: string;
+  roles: string[];
   year: string;
   tags: string[];
 };
@@ -73,26 +74,39 @@ export const dictionaries: Record<Locale, Dictionary> = {
     projects: [
       {
         title: "팜스플랜 양돈 매니저",
-        blurb: "양돈 농장 관리 서비스. 번식돈·비육돈 관리 기능 리팩토링, 양식 엑셀 파일 업로드 기능 구현.",
+        summary: "양돈 농장 관리 서비스.",
+        roles: [
+          "번식돈·비육돈 관리 기능 리팩토링",
+          "양식 엑셀 파일 업로드 기능 구현",
+        ],
         year: "2023",
         tags: ["Elixir", "Phoenix LiveView", "PostgreSQL"],
       },
       {
         title: "팜스플랜 양계 매니저",
-        blurb: "양계 농장 관리 서비스. DB 스키마 모델링, 백엔드 context 작성, 주기별 입고·출하 관리 페이지 개발.",
+        summary: "양계 농장 관리 서비스.",
+        roles: [
+          "DB 스키마 모델링",
+          "백엔드 context 작성",
+          "주기별 입고·출하 관리 페이지 개발",
+        ],
         year: "2023",
         tags: ["Elixir", "Phoenix LiveView", "PostgreSQL"],
       },
       {
         title: "사내 어드민 페이지",
-        blurb: "농장 및 유저 관리 페이지. 기존 Retool로 구현된 어드민을 Phoenix LiveView로 마이그레이션.",
+        summary: "농장 및 유저 관리 페이지.",
+        roles: ["기존 Retool 어드민을 Phoenix LiveView로 마이그레이션"],
         year: "2024",
         tags: ["Elixir", "Phoenix LiveView", "Migration"],
       },
       {
         title: "비육돈 출하정산 서비스",
-        blurb:
-          "출하 등급 데이터를 수집해 예상 판매가를 계산하고 알림을 제공. 공공데이터포털 API Client와 돼지 출하 데이터 수집 크롤러 개발. NHN·Kakao Business API를 활용한 시세·계근표 알림 전송 기능 개발.",
+        summary: "출하 등급 데이터를 수집해 예상 판매가를 계산하고 알림을 제공.",
+        roles: [
+          "공공데이터포털 API Client와 돼지 출하 데이터 수집 크롤러 개발",
+          "NHN·Kakao Business API를 활용한 시세·계근표 알림 전송 기능 개발",
+        ],
         year: "2024",
         tags: ["Elixir", "Crawler", "API Client", "NHN", "Kakao"],
       },
@@ -141,28 +155,39 @@ export const dictionaries: Record<Locale, Dictionary> = {
     projects: [
       {
         title: "Farmsplan Pig Manager",
-        blurb:
-          "A pig farm management service. Breeding/feeder pig feature refactoring, Excel-template data upload.",
+        summary: "A pig farm management service.",
+        roles: [
+          "Breeding/feeder pig feature refactoring",
+          "Excel-template data upload",
+        ],
         year: "2023",
         tags: ["Elixir", "Phoenix LiveView", "PostgreSQL"],
       },
       {
         title: "Farmsplan Poultry Manager",
-        blurb:
-          "A poultry farm management service. DB schema modeling, backend context authoring, inbound/shipping management pages.",
+        summary: "A poultry farm management service.",
+        roles: [
+          "DB schema modeling",
+          "Backend context authoring",
+          "Inbound/shipping management pages",
+        ],
         year: "2023",
         tags: ["Elixir", "Phoenix LiveView", "PostgreSQL"],
       },
       {
         title: "Internal Admin Page",
-        blurb: "Farm and user management page. Retool admin migration to Phoenix LiveView.",
+        summary: "Farm and user management page.",
+        roles: ["Retool admin migration to Phoenix LiveView"],
         year: "2024",
         tags: ["Elixir", "Phoenix LiveView", "Migration"],
       },
       {
         title: "Feeder-Pig Shipping Settlement",
-        blurb:
-          "Shipping-grade data collection, sale-price estimation, and alerts. Public-data API client & crawler development, price/scale-ticket alerts via NHN and Kakao Business APIs.",
+        summary: "Shipping-grade data collection, sale-price estimation, and alerts.",
+        roles: [
+          "Public-data API client & crawler development",
+          "Price/scale-ticket alerts via NHN and Kakao Business APIs",
+        ],
         year: "2024",
         tags: ["Elixir", "Crawler", "API Client", "NHN", "Kakao"],
       },

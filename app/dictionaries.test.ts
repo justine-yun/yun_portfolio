@@ -32,6 +32,7 @@ describe("dictionaries", () => {
     for (const code of locales) {
       dictionaries[code].projects.forEach((project, i) => {
         expect(project.tags).toEqual(base.projects[i].tags);
+        expect(project.roles).toHaveLength(base.projects[i].roles.length);
       });
     }
   });
@@ -49,7 +50,7 @@ describe("dictionaries", () => {
         d.experience.period,
         d.experience.role,
         ...d.experience.achievements,
-        ...d.projects.flatMap((p) => [p.title, p.blurb, p.year]),
+        ...d.projects.flatMap((p) => [p.title, p.summary, p.year, ...p.roles]),
         ...d.education.flatMap((e) => [e.title, e.detail, e.period]),
         d.contact.heading,
         d.footer,

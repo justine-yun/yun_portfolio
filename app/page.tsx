@@ -135,7 +135,18 @@ function Project() {
                       </h3>
                       <span className="eyebrow">{project.year}</span>
                     </div>
-                    <p className="mt-2 max-w-xl leading-7 text-muted">{project.blurb}</p>
+                    <p className="mt-2 max-w-xl leading-7 text-muted">{project.summary}</p>
+                    <ul className="mt-3 space-y-1.5">
+                      {project.roles.map(role => (
+                        <li key={role} className="flex gap-2 leading-6 text-muted">
+                          <span
+                            aria-hidden
+                            className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent"
+                          />
+                          <span>{role}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                   <div className="flex flex-wrap gap-2 sm:max-w-[220px] sm:justify-end">
                     {project.tags.map(tag => (
