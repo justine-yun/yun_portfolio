@@ -1,5 +1,18 @@
 "use client";
 
+import {
+  SiElixir,
+  SiJavascript,
+  SiTypescript,
+  SiPhoenixframework,
+  SiExpress,
+  SiNestjs,
+  SiPostgresql,
+  SiMysql,
+  SiMongodb,
+  SiRedis,
+  SiNaver,
+} from "react-icons/si";
 import { ThemeToggle } from "./theme-toggle";
 import { LanguagePicker, useDict } from "./language";
 
@@ -15,11 +28,32 @@ const navLinks = [
 ];
 
 const techStack = [
-  { group: "Language", items: ["Elixir", "JavaScript", "TypeScript"] },
-  { group: "Backend", items: ["Phoenix LiveView", "Express.js", "NestJS"] },
+  {
+    group: "Language",
+    items: [
+      { name: "Elixir", Icon: SiElixir, color: "#4B275F" },
+      { name: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
+      { name: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
+    ],
+  },
+  {
+    group: "Backend",
+    items: [
+      { name: "Phoenix LiveView", Icon: SiPhoenixframework, color: "#FD4F00" },
+      // Express brand is monochrome — inherit accent for dark-mode contrast.
+      { name: "Express.js", Icon: SiExpress, color: undefined },
+      { name: "NestJS", Icon: SiNestjs, color: "#E0234E" },
+    ],
+  },
   {
     group: "Database & Infra",
-    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Naver Cloud Platform"],
+    items: [
+      { name: "PostgreSQL", Icon: SiPostgresql, color: "#4169E1" },
+      { name: "MySQL", Icon: SiMysql, color: "#4479A1" },
+      { name: "MongoDB", Icon: SiMongodb, color: "#47A248" },
+      { name: "Redis", Icon: SiRedis, color: "#FF4438" },
+      { name: "Naver Cloud Platform", Icon: SiNaver, color: "#03C75A" },
+    ],
   },
 ];
 
@@ -175,9 +209,13 @@ function Stack() {
             <div key={row.group}>
               <p className="eyebrow">{row.group}</p>
               <div className="mt-4 flex flex-wrap gap-2">
-                {row.items.map(item => (
-                  <span key={item} className="rounded-full bg-accent-soft px-4 py-1.5 text-sm font-medium text-accent">
-                    {item}
+                {row.items.map(({ name, Icon, color }) => (
+                  <span
+                    key={name}
+                    className="flex items-center gap-1.5 rounded-full bg-accent-soft px-4 py-1.5 text-sm font-medium text-accent"
+                  >
+                    <Icon aria-hidden className="h-4 w-4" color={color} />
+                    {name}
                   </span>
                 ))}
               </div>
